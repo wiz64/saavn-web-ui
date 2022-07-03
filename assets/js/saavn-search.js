@@ -26,8 +26,8 @@ lastSearch = decodeURI(window.location.hash.substring(1));
 for(let track of json) {
 
 
-song_name = TextAbstract(track.name,25);
-album_name = TextAbstract(track.album.name,20);
+song_name = TextAbstract(track.name,35);
+album_name = TextAbstract(track.album.name,35);
 if (track.album.name == track.name) {
     album_name = ""
 }
