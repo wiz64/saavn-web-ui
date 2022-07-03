@@ -4,8 +4,8 @@ Playing high quality songs, over your web browser, ad-free experience, High-Qual
 
 ---
 ## Details
-> Status : In Development / Unreleased <br>
-Version : v0.0.1 <br>
+> Status : In Development<br>
+Version : v1.0 <br>
 Developers: @wiz64
 ## Features
 - ⭕ All basic features of a music player
