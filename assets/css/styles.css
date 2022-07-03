@@ -1,0 +1,16 @@
+.fit-content {
+  width: fit-content;
+  width: -moz-fit-content;
+}
+
+#audio-player {
+  right: 0px;
+  left: 0px;
+  position: fixed;
+  bottom: 0px;
+}
+
+a.nav-link {
+  color: #f58723;
+}
+
