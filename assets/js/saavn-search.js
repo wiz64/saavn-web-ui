@@ -1,19 +1,28 @@
 const results_container = document.querySelector("#saavn-results")
+
 const searchUrl = "https://saavn.me/search/songs?query=";
 function SaavnSearch() {
 event.preventDefault(); // stop page changing to #, which will reload the page
+
 const query = document.querySelector("#saavn-search-box").value.trim()
-if(query.length > 0) { doSaavnSearch(query+"&limit=50"); }
+if(query==lastSearch) {doSaavnSearch(query)}
+    window.location.hash = query 
+if(query.length > 0) { 
+    window.location.hash = query 
 }
-doSaavnSearch('new',1);
+}
+
 async function doSaavnSearch(query,NotScroll) {
+    if(!query) {return 0;}
 results_container.innerHTML = `<span class="loader">Searching</span>`;
+    query=query+"&limit=50";
+
 var response = await fetch(searchUrl + query);
 var json = await response.json();
-console.log(json);
 var json = json.results;
 var results = [];
 if(!json.length) {results_container.innerHTML = "<p> No result found. Try other Library </p>";return;}
+lastSearch = decodeURI(window.location.hash.substring(1));
 for(let track of json) {
 
 
@@ -37,14 +46,12 @@ var song_image = track.image[1].link;
 var song_artist = TextAbstract(track.primaryArtists,30);
 var bitrate = document.getElementById('saavn-bitrate');
 var bitrate_i = bitrate.options[bitrate.selectedIndex].value;
-console.log(bitrate_i)
 if(track.downloadUrl) {
 var download_url = track.downloadUrl[bitrate_i]['link'];
 var quality = "";
 if (bitrate_i == 4) {quality = 320} else {quality = 160;}
 
         results.push(`
-		
 <div class="text-left song-container" style="margin-bottom: 20px;border-bottom-right-radius: 30px;border: 2px solid var(--gray);border-bottom-style: solid;border-top-left-radius: 30px;">
     <div class="row" style="margin: auto;">
         <div class="col-auto" style="padding: 0px;padding-right: 0px;border-style: none;"><img id="${song_id}-i" class="img-fluid d-inline" style="width: 110px;border-top-left-radius: 30px;height: 114px;" src="${song_image}" loading="lazy" /></div>
@@ -56,11 +63,10 @@ if (bitrate_i == 4) {quality = 320} else {quality = 160;}
         </div>
     </div>
 </div>
-
 `
 ); }
     }
-
+    
     results_container.innerHTML = results.join(' ');
     if(!NotScroll){
     document.getElementById("saavn-results").scrollIntoView();
@@ -80,3 +86,23 @@ function TextAbstract(text, length) {
     text = text.substring(0, last);
     return text + "...";
 }
+if(window.location.hash) {
+   doSaavnSearch(window.location.hash.substring(1));
+} else {doSaavnSearch('new',1);}
+
+addEventListener('hashchange', event => { });
+onhashchange = event => {doSaavnSearch(window.location.hash.substring(1))};
+
+// If Bitrate changes, search again
+$('#saavn-bitrate').on('change', function () {
+    doSaavnSearch(lastSearch);
+        /*
+    var isDirty = !this.options[this.selectedIndex].defaultSelected;
+
+    if (isDirty) {
+        // Value Changed
+        doSaavnSearch(lastSearch)
+    } else {
+        // Do Nothing
+    } */
+});
