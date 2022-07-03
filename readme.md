@@ -3,9 +3,15 @@ Playing high quality songs, over your web browser, ad-free experience, High-Qual
 > UI/Front-end for the [JioSaavn Unofficial API](https://github.com/sumitkolhe/jiosaavn-api) by [@sumitkolhe](https://github.com/sumitkolhe)
 
 ---
+
+## Live Preview
+Preview is available at the links below : <br>
+[saavn-web-ui.vercel.app](https://saavn-web-ui.vercel.app/)<br>
+[saavn.codeforkers.tk](https://saavn.codeforkers.tk)
+
 ## Details
 > Status : `In Development`<br>
-Version : `v1.0` <br>
+Version : `v1.1` <br>
 Developers: `@wiz64`
 ## Features
 - ⭕ All basic features of a music player
