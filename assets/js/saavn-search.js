@@ -4,7 +4,9 @@ const searchUrl = "https://saavn.me/search/songs?query=";
 function SaavnSearch() {
 event.preventDefault(); // stop page changing to #, which will reload the page
 
-const query = document.querySelector("#saavn-search-box").value.trim()
+var query = document.querySelector("#saavn-search-box").value.trim()
+query = encodeURIComponent(query);
+
 if(query==lastSearch) {doSaavnSearch(query)}
     window.location.hash = query 
 if(query.length > 0) { 
