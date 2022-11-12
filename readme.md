@@ -8,6 +8,7 @@ Playing high quality songs, over your web browser, ad-free experience, High-Qual
 Preview is available at the links below : <br>
 [saavn-web-ui.vercel.app](https://saavn-web-ui.vercel.app/)<br>
 [saavn.codeforkers.tk](https://saavn.codeforkers.tk)
+> Note - The UI was developed back in 2020 and will be redesigned soon..
 
 ## Details
 > Status : `In Development`<br>
