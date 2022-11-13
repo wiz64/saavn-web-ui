@@ -1,6 +1,6 @@
 const results_container = document.querySelector("#saavn-results")
 
-const searchUrl = "https://saavn.me/search/songs?query=";
+const searchUrl = "https://jiosaavn-api-privatecvc.vercel.app/search/songs?query=";
 function SaavnSearch() {
 event.preventDefault(); // stop page changing to #, which will reload the page
 
