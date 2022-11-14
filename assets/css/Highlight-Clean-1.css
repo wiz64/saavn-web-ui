@@ -2,6 +2,7 @@
   color: #313437;
   background-color: #fff;
   padding: 50px 0;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .highlight-clean p {
@@ -57,3 +58,14 @@
   color: #fff;
 }
 
+.text-center {
+  margin: 10px 0 15px;
+}
+
+#saavn-bitrate {
+  background-color: #1c1c1c;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px;
+}

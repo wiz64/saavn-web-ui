@@ -8,9 +8,10 @@
   left: 0px;
   position: fixed;
   bottom: 0px;
+  padding: 20px;
+  font-family: 'JetBrains Mono', monospace;
 }
 
-a.nav-link {
-  color: #f58723;
+audio::-webkit-media-controls-panel {
+  background-color: #ff9f44af;
 }
-
