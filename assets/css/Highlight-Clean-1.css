@@ -69,3 +69,9 @@
   border-radius: 5px;
   padding: 10px;
 }
+
+footer {
+  color: rgba(255, 255, 255, 0.753);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}

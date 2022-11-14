@@ -57,7 +57,7 @@ if (bitrate_i == 4) {quality = 320} else {quality = 160;}
 <div class="text-left song-container" style="margin-bottom: 20px;border-radius: 10px; background-color: #1c1c1c; padding: 10px;">
     <div class="row" style="margin: auto;">
         <div class="col-auto" style="padding: 0px;padding-right: 0px;border-style: none;">
-        <img id="${song_id}-i" class="img-fluid d-inline" style="width: 110px;border-top-left-radius: 10px;border-bottom-left-radius: 10px;height: 114px;padding-right:10px;" src="${song_image}" loading="lazy" /></div>
+        <img id="${song_id}-i" class="img-fluid d-inline" style="width: 115px;border-radius: 5px;height: 115px;padding-right:10px;" src="${song_image}" loading="lazy" /></div>
         <div class="col" style="border-style: none;padding: 2px;">
             <p class="float-right fit-content" style="margin: 0px;color: #fff;padding-right:10px;">${year}</p>
             <p id="${song_id}-n" class="fit-content" style="margin: 0px;color: #fff;max-width: 100%;">${song_name}</p>
