@@ -1,4 +1,4 @@
-const results_container = document.querySelector("#saavn-results")
+var results_container = document.querySelector("#saavn-results")
 
 const searchUrl = "https://jiosaavn-api-privatecvc.vercel.app/search/songs?query=";
 function SaavnSearch() {
@@ -19,8 +19,20 @@ async function doSaavnSearch(query,NotScroll) {
 results_container.innerHTML = `<span class="loader">Searching</span>`;
     query=query+"&limit=50";
 
+// try catch
+try {
 var response = await fetch(searchUrl + query);
+} catch(error) {
+results_container.innerHTML = `<span class="error">Error: ${error} <br> Check if API is down </span>`;
+}
 var json = await response.json();
+/* If response code isn't 200, display error*/
+
+if (response.status !== 200) {
+    results_container.innerHTML = `<span class="error">Error: ${json.message}</span>`;
+    console.log(response)
+    return 0;
+}
 var json = json.results;
 var results = [];
 if(!json.length) {results_container.innerHTML = "<p> No result found. Try other Library </p>";return;}
@@ -54,17 +66,20 @@ var quality = "";
 if (bitrate_i == 4) {quality = 320} else {quality = 160;}
 
         results.push(`
-<div class="text-left song-container" style="margin-bottom: 20px;border-bottom-right-radius: 30px;border: 2px solid var(--gray);border-bottom-style: solid;border-top-left-radius: 30px;">
-    <div class="row" style="margin: auto;">
-        <div class="col-auto" style="padding: 0px;padding-right: 0px;border-style: none;"><img id="${song_id}-i" class="img-fluid d-inline" style="width: 110px;border-top-left-radius: 30px;height: 114px;" src="${song_image}" loading="lazy" /></div>
-        <div class="col" style="border-style: none;padding: 2px;">
-            <p class="float-right fit-content" style="margin: 0px;color: rgb(172,248,159);">${year}</p>
-            <p id="${song_id}-n" class="fit-content" style="margin: 0px;color: rgb(172,248,159);max-width: 100%;">${song_name}</p>
-            <p id="${song_id}-a" class="fit-content" style="margin: 0px;color: rgb(172,248,159);max-width: 100%;">${album_name}<br /></p>
-            <p id="${song_id}-ar" class="fit-content" style="margin: 0px;color: rgb(172,248,159);max-width: 100%;">${song_artist}<br /></p><button class="btn btn-primary song-btn" type="button" style="margin: 0px 2px;" onclick='PlayAudio("${download_url}","${song_id}")'>▶ Play</button><p class="float-right fit-content" style="margin: 0px;color: rgb(172,248,159);">${play_time}<br /></p>
+        <div class="text-left song-container" style="margin-bottom: 20px;border-radius: 10px; background-color: #1c1c1c; padding: 10px;">
+        <div class="row" style="margin: auto;">
+            <div class="col-auto" style="padding: 0px;padding-right: 0px;border-style: none;">
+            <img id="${song_id}-i" class="img-fluid d-inline" style="width: 115px;border-radius: 5px;height: 115px;padding-right:10px;" src="${song_image}" loading="lazy" /></div>
+            <div class="col" style="border-style: none;padding: 2px;">
+                <p class="float-right fit-content" style="margin: 0px;color: #fff;padding-right:10px;">${year}</p>
+                <p id="${song_id}-n" class="fit-content" style="margin: 0px;color: #fff;max-width: 100%;">${song_name}</p>
+                <p id="${song_id}-a" class="fit-content" style="margin: 0px;color: #fff;max-width: 100%;">${album_name}<br /></p>
+                <p id="${song_id}-ar" class="fit-content" style="margin: 0px;color: #fff;max-width: 100%;">${song_artist}<br /></p>
+                <button class="btn btn-primary song-btn" type="button" style="margin: 0px 2px;" onclick='PlayAudio("${download_url}","${song_id}")'>▶</button>
+                <p class="float-right fit-content" style="margin: 0px;color: #fff;padding-right:10px;padding-top:15px;">${play_time}<br /></p>
+            </div>
         </div>
     </div>
-</div>
 `
 ); }
     }

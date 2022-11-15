@@ -8,9 +8,121 @@
   left: 0px;
   position: fixed;
   bottom: 0px;
+  padding: 20px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.song-image {
+  width: 110px;border-top-left-radius: 30px;height: 114px;
+}
+.song-text {
+  margin: 0px;color: rgb(172,248,159);max-width: 100%;
+}
+.song-container {
+  margin-bottom: 20px;border-bottom-right-radius: 30px;border: 2px solid var(--gray);border-bottom-style: solid;border-top-left-radius: 30px;
+}
+audio::-webkit-media-controls-panel {
+  background-color: #ff9f44af;
 }
 
 a.nav-link {
   color: #f58723;
 }
 
+.footer-basic {
+  padding: 40px 0;
+  background-color: #ffffff;
+  color: #4b4c4d;
+}
+
+.header-dark {
+  background-size: cover;
+}
+
+.header-dark h1 {
+  color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 40px;
+  padding-top: 60px;
+}
+
+/* Highlight Clean */
+.highlight-clean {
+  color: #313437;
+  background-color: #fff;
+  padding: 50px 0;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.highlight-clean p {
+  color: #7d8285;
+}
+
+.highlight-clean h2 {
+  font-weight: bold;
+  margin-bottom: 25px;
+  line-height: 1.5;
+  padding-top: 0;
+  margin-top: 0;
+  color: inherit;
+}
+
+.highlight-clean .intro {
+  font-size: 16px;
+  max-width: 500px;
+  margin: 0 auto 25px;
+}
+
+.highlight-clean .buttons {
+  text-align: center;
+}
+
+.highlight-clean .buttons .btn {
+  padding: 16px 32px;
+  margin: 6px;
+  border: none;
+  background: none;
+  box-shadow: none;
+  text-shadow: none;
+  opacity: 0.9;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  line-height: 1;
+  outline: none;
+  background-color: #ddd;
+}
+
+.highlight-clean .buttons .btn:hover {
+  opacity: 1;
+}
+
+.highlight-clean .buttons .btn:active {
+  transform: translateY(1px);
+}
+
+.highlight-clean .buttons .btn-primary {
+  background-color: #055ada;
+  color: #fff;
+}
+
+.text-center {
+  margin: 10px 0 15px;
+}
+
+#saavn-bitrate {
+  background-color: #1c1c1c;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+footer {
+  color: rgba(255, 255, 255, 0.753);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+.error {
+ margin : 20px;
+}

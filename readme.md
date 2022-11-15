@@ -1,4 +1,4 @@
-# Saavn Web UI
+# Saadhna
 Playing high quality songs, over your web browser, ad-free experience, High-Quality Music upto 320kbps
 > UI/Front-end for the [JioSaavn Unofficial API](https://github.com/sumitkolhe/jiosaavn-api) by [@sumitkolhe](https://github.com/sumitkolhe)
 
@@ -12,7 +12,7 @@ Preview is available at the links below : <br>
 
 ## Details
 > Status : `In Development`<br>
-Version : `v1.1` <br>
+Version : `v2.0` <br>
 Developers: `@wiz64`
 ## Features
 - ⭕ All basic features of a music player
