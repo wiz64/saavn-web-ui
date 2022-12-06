@@ -32,4 +32,110 @@ var goButton = document.getElementById("search-trigger");
             goButton.click();
     
 }
+var DOWNLOAD_API = "https://saadhna-mp3-server.repl2z64.repl.co"
+function AddDownload(id) {
+    var bitrate = document.getElementById('saavn-bitrate');
+    var bitrate_i = bitrate.options[bitrate.selectedIndex].value;
+    // MP3 server API
+    var MP3DL = DOWNLOAD_API+"/add?id="+id;
+    // make api call, if 200, add to download list
+    fetch(MP3DL)
+    .then(response => response.json())
+    .then(data => {
+        if (data.status == "success") {
+            // add to download list
+            var download_list = document.getElementById("download-list");
+            var download_item = document.createElement("li");
+           /*
+           <li>
+                    <div class="col">
+                        
+                        <img src="https://i.pinimg.com/originals/ed/54/d2/ed54d2fa700d36d4f2671e1be84651df.jpg" width="50px">
+                        <div style="display: inline;">
+                        <span id="download-name">Song</span>
+                        <span id="download-album">Album</span>
+                        <br>
+                        <span id="download-size">Size</span>
+                        <span id="download-status" style="color:green">Compiling.</span>
+                        </div>
+                    </div>
+                    <hr>
+                    </li>
+           */
+            // download_item.innerHTML = '<div class="col"><img src="'+data.image+'" width="50px"><div style="display: inline;"><span id="download-name">'+id+'</span><span id="download-album">'+data.album+'</span><br><span id="download-size">'+data.size+'</span><span id="download-status" style="color:green">Compiling.</span></div></div><hr>';
+            download_item.innerHTML = `
+            <div class="col">
+            <img src="${data.image}" width="50px">
+            <div style="display: inline;">
+              <span id="download-name"> ${id}</span> - 
+              <span id="download-album"> ${data.album}</span>
+              <br>
+              <span id="download-size"> ${data.size}</span>
+              <span id="download-status" style="color:green"> Queued</span>
+            </div>
+          </div>
+          <hr>
+            `;
 
+            // set download_item id to song id
+            download_item.id = id;
+            // set css class no-bullets
+            download_item.className = "no-bullets";
+
+            download_list.appendChild(download_item);
+            // every 5 seconds, check download status
+            var STATUS_URL = DOWNLOAD_API+"/status?id="+id;
+            var download_status = document.getElementById(id);
+            var download_status_span = download_status.getElementsByTagName("span")[3];
+            var download_status_span_text = download_status_span.textContent;
+            // set download-name to song name, download-album to album name, cover img
+
+            var download_img = document.getElementById(id).getElementsByTagName("img")[0];
+            var download_name = document.getElementById(id).getElementsByTagName("span")[0];
+            var download_album = document.getElementById(id).getElementsByTagName("span")[1];
+            var download_size = document.getElementById(id).getElementsByTagName("span")[2];
+            download_name.textContent = results_objects[id].track.name;
+            download_album.textContent = results_objects[id].track.album.name;
+            download_img.setAttribute("src",results_objects[id].track.image[2].link);
+            
+            // change mpopupLink background and border color to green and back to blue after 1 second
+            var float_tap = document.getElementById('mpopupLink');
+            float_tap.style.backgroundColor = "green";
+            float_tap.style.borderColor = "green";
+
+            setTimeout(function() {
+                float_tap.style.backgroundColor = "#007bff";
+                float_tap.style.borderColor = "#007bff";
+            }, 1000);
+            
+
+           
+
+
+            
+
+
+
+
+
+            // check status every 5 seconds
+            var interval = setInterval(function() {
+                fetch(STATUS_URL)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status) {
+                        // update status
+                        download_status_span.textContent = data.status;
+                        if(data.size) {
+                            download_size.textContent = "Size: "+data.size;
+                        }
+                        if (data.status == "Done") {
+                            // download complete, add download button
+                            download_status_span.innerHTML = `<a href="${DOWNLOAD_API}${data.url}">Download MP3</a>`;
+
+
+
+
+                  }}
+              });}, 2000); // end interval
+        } });}

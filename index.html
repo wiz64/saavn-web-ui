@@ -89,6 +89,99 @@ Don't forget to star the repo
             </div>
         </div>
     </div>
+    <!-- floating downloader popup -->
+    <div class=”float-button” style="width:30px; height:30px; border-radius:50%; background-color:#fff; box-shadow: 0 0 10px #000; cursor:pointer; position:fixed;top:50px; right:20px; z-index:9999;">
+    <!-- download icon -->
+    <a href="javascript:void(0);" class="btn btn-primary" id="mpopupLink">
+    <img src="https://img.icons8.com/ios/50/000000/download.png">
+    </a></div>
+    <style>
+        .mpopup {
+            position: fixed;
+            overflow: auto;
+            overflow-x: hidden;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            width: auto;
+            height: auto;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            display: none;
+        }
+        ul.nobullets {
+  list-style-type: none; /* Remove bullets */
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}
+    </style>
+    <!-- Modal popup box -->
+<div id="mpopupBox" class="mpopup">
+    <!-- Modal content -->
+    <div class="modal-content">
+    
+        <div class="modal-header" style="display:inline;">
+            <span class="close">×</span>
+            <h2>Downloads</h2>
+        </div>
+        <div class="modal-body">
+            <!-- list of songs, with a small cover art pic, name, album name -->
+            <row>
+            <ul id="download-list" class="nobullets">
+                    <!--<li>
+                    <div class="col">
+                        
+                        <img id="download-cover" src="https://i.pinimg.com/originals/ed/54/d2/ed54d2fa700d36d4f2671e1be84651df.jpg" width="50px">
+                        <div style="display: inline;">
+                        <span id="download-name">Song</span>
+                        <span id="download-album">Album</span>
+                        <br>
+                        <span id="download-size">Size</span>
+                        <span id="download-status" style="color:green">Compiling.</span>
+                        </div>
+                    </div>
+                    <hr>
+                    </li>-->
+                    
+
+
+                
+                </ul></row>
+        </div>
+        <div class="modal-footer" style="text-align: center;">
+            <p>Don't flood the Media Server, Have patience...</p>
+        </div>
+    
+    </div>
+</div>
+<script>
+    // Select modal
+    var mpopup = document.getElementById('mpopupBox');
+    
+    // Select trigger link
+    var mpLink = document.getElementById("mpopupLink");
+    
+    // Select close action element
+    var close = document.getElementsByClassName("close")[0];
+    
+    // Open modal once the link is clicked
+    mpLink.onclick = function() {
+        mpopup.style.display = "block";
+    };
+    
+    // Close modal once close element is clicked
+    close.onclick = function() {
+        mpopup.style.display = "none";
+    };
+    
+    // Close modal when user clicks outside of the modal box
+    window.onclick = function(event) {
+        if (event.target == mpopup) {
+            mpopup.style.display = "none";
+        }
+    };
+    </script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/js/bootstrap.bundle.min.js"></script>

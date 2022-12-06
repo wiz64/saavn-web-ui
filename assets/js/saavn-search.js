@@ -1,5 +1,5 @@
 var results_container = document.querySelector("#saavn-results")
-
+var results_objects = {};
 const searchUrl = "https://jiosaavn-api-privatecvc.vercel.app/search/songs?query=";
 function SaavnSearch() {
 event.preventDefault(); // stop page changing to #, which will reload the page
@@ -64,8 +64,11 @@ if(track.downloadUrl) {
 var download_url = track.downloadUrl[bitrate_i]['link'];
 var quality = "";
 if (bitrate_i == 4) {quality = 320} else {quality = 160;}
-
-        results.push(`
+    // push object to results array
+    results_objects[song_id] = {
+        track: track
+    };
+      results.push(`
         <div class="text-left song-container" style="margin-bottom: 20px;border-radius: 10px; background-color: #1c1c1c; padding: 10px;">
         <div class="row" style="margin: auto;">
             <div class="col-auto" style="padding: 0px;padding-right: 0px;border-style: none;">
@@ -76,6 +79,7 @@ if (bitrate_i == 4) {quality = 320} else {quality = 160;}
                 <p id="${song_id}-a" class="fit-content" style="margin: 0px;color: #fff;max-width: 100%;">${album_name}<br /></p>
                 <p id="${song_id}-ar" class="fit-content" style="margin: 0px;color: #fff;max-width: 100%;">${song_artist}<br /></p>
                 <button class="btn btn-primary song-btn" type="button" style="margin: 0px 2px;" onclick='PlayAudio("${download_url}","${song_id}")'>▶</button>
+                <button class="btn btn-primary song-btn" type="button" style="margin: 0px 2px;" onclick='AddDownload("${song_id}")'>DL</button>
                 <p class="float-right fit-content" style="margin: 0px;color: #fff;padding-right:10px;padding-top:15px;">${play_time}<br /></p>
             </div>
         </div>
