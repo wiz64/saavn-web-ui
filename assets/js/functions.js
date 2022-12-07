@@ -32,7 +32,7 @@ var goButton = document.getElementById("search-trigger");
             goButton.click();
     
 }
-var DOWNLOAD_API = "https://wiz64-literate-umbrella-55xpprq94w93v4v9-34000.preview.app.github.dev"
+var DOWNLOAD_API = "https://saadhna-mp3-server.repl2z64.repl.co"
 function AddDownload(id) {
     var bitrate = document.getElementById('saavn-bitrate');
     var bitrate_i = bitrate.options[bitrate.selectedIndex].value;
