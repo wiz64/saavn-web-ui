@@ -32,7 +32,7 @@ var goButton = document.getElementById("search-trigger");
             goButton.click();
     
 }
-var DOWNLOAD_API = "https://saadhna-mp3-server.repl2z64.repl.co"
+var DOWNLOAD_API = "https://wiz64-literate-umbrella-55xpprq94w93v4v9-34000.preview.app.github.dev"
 function AddDownload(id) {
     var bitrate = document.getElementById('saavn-bitrate');
     var bitrate_i = bitrate.options[bitrate.selectedIndex].value;
@@ -65,36 +65,37 @@ function AddDownload(id) {
             // download_item.innerHTML = '<div class="col"><img src="'+data.image+'" width="50px"><div style="display: inline;"><span id="download-name">'+id+'</span><span id="download-album">'+data.album+'</span><br><span id="download-size">'+data.size+'</span><span id="download-status" style="color:green">Compiling.</span></div></div><hr>';
             download_item.innerHTML = `
             <div class="col">
-            <img src="${data.image}" width="50px">
+            <img class="track-img" src="${data.image}" width="50px">
             <div style="display: inline;">
-              <span id="download-name"> ${id}</span> - 
-              <span id="download-album"> ${data.album}</span>
+              <span class="track-name"> ${id}</span> - 
+              <span class="track-album"> ${data.album}</span>
               <br>
-              <span id="download-size"> ${data.size}</span>
-              <span id="download-status" style="color:green"> Queued</span>
+              <span class="track-size"> Size : Null</span>
+              <span class="track-status" style="color:green"> </span>
             </div>
           </div>
           <hr>
             `;
 
-            // set download_item id to song id
-            download_item.id = id;
+            // set download_item track_tag to song id
+            download_item.setAttribute("track_tag",id);
+            
             // set css class no-bullets
             download_item.className = "no-bullets";
 
             download_list.appendChild(download_item);
             // every 5 seconds, check download status
             var STATUS_URL = DOWNLOAD_API+"/status?id="+id;
-            var download_status = document.getElementById(id);
-            var download_status_span = download_status.getElementsByTagName("span")[3];
-            var download_status_span_text = download_status_span.textContent;
-            // set download-name to song name, download-album to album name, cover img
-
-            var download_img = document.getElementById(id).getElementsByTagName("img")[0];
-            var download_name = document.getElementById(id).getElementsByTagName("span")[0];
-            var download_album = document.getElementById(id).getElementsByTagName("span")[1];
-            var download_size = document.getElementById(id).getElementsByTagName("span")[2];
+            // get download_status_span by track_tag and class
+            var download_status_span = document.querySelector('[track_tag="'+id+'"] .track-status');
+            var download_name = document.querySelector('[track_tag="'+id+'"] .track-name');
+            var download_album = document.querySelector('[track_tag="'+id+'"] .track-album');
+            var download_img = document.querySelector('[track_tag="'+id+'"] .track-img');
+            var download_size = document.querySelector('[track_tag="'+id+'"] .track-size');
+            // set text content to song name and album name
+            
             download_name.textContent = results_objects[id].track.name;
+            download_status_span.textContent = data.status;
             download_album.textContent = results_objects[id].track.album.name;
             download_img.setAttribute("src",results_objects[id].track.image[2].link);
             
