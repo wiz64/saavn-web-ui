@@ -94,9 +94,9 @@ function AddDownload(id) {
             var download_size = document.querySelector('[track_tag="'+id+'"] .track-size');
             // set text content to song name and album name
             
-            download_name.textContent = results_objects[id].track.name;
-            download_status_span.textContent = data.status;
-            download_album.textContent = results_objects[id].track.album.name;
+            download_name.innerHTML= results_objects[id].track.name;
+            download_status_span.innerHTML = data.status;
+            download_album.innerHTML = results_objects[id].track.album.name;
             download_img.setAttribute("src",results_objects[id].track.image[2].link);
             
             // change mpopupLink background and border color to green and back to blue after 1 second
