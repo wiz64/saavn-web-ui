@@ -132,7 +132,7 @@ function AddDownload(id) {
                         }
                         if (data.status == "Done") {
                             // download complete, add download button
-                            download_status_span.innerHTML = `<a href="${DOWNLOAD_API}${data.url}">Download MP3</a>`;
+                            download_status_span.innerHTML = `<a href="${DOWNLOAD_API}${data.url}" target="_blank">Download MP3</a>`;
 
 
 
