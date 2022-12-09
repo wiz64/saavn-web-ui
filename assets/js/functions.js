@@ -109,16 +109,6 @@ function AddDownload(id) {
                 float_tap.style.borderColor = "#007bff";
             }, 1000);
             
-
-           
-
-
-            
-
-
-
-
-
             // check status every 5 seconds
             var interval = setInterval(function() {
                 fetch(STATUS_URL)
@@ -133,10 +123,9 @@ function AddDownload(id) {
                         if (data.status == "Done") {
                             // download complete, add download button
                             download_status_span.innerHTML = `<a href="${DOWNLOAD_API}${data.url}" target="_blank">Download MP3</a>`;
-
-
-
-
+                            // clear interval
+                            clearInterval(interval);
+                            return;
                   }}
-              });}, 2000); // end interval
+              });}, 3000); // end interval
         } });}
