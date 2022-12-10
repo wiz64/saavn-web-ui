@@ -29,6 +29,7 @@ Developers: `@wiz64`
 ## Installation / Usage
 
 Files are completely static, and can be served directly to the browser. No installation is required, Just open the page on a browser and you're ready to rock.
+Downloader API is available at [wiz64/saadhna-mp3-server](https://github.com/wiz64/saadhna-mp3-server)
 
 <br>
 
