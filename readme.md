@@ -11,7 +11,7 @@ Preview is available at the links below : <br>
 
 ## Details
 > Status : `In Development`<br>
-Version : `v2.0` <br>
+Version : `v2.1` <br>
 Developers: `@wiz64`
 ## Features
 - ⭕ All basic features of a music player
