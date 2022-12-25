@@ -3,22 +3,32 @@ var results_objects = {};
 const searchUrl = "https://jiosaavn-api-privatecvc.vercel.app/search/songs?query=";
 function SaavnSearch() {
 event.preventDefault(); // stop page changing to #, which will reload the page
-
 var query = document.querySelector("#saavn-search-box").value.trim()
 query = encodeURIComponent(query);
 
 if(query==lastSearch) {doSaavnSearch(query)}
-    window.location.hash = query 
+    window.location.hash = lastSearch; 
 if(query.length > 0) { 
     window.location.hash = query 
 }
-}
 
-async function doSaavnSearch(query,NotScroll) {
+}
+var page_index = 1;
+function nextPage() {
+    var query = document.querySelector("#saavn-search-box").value.trim();
+    if (!query) {query = lastSearch;}
+    query = encodeURIComponent(query);
+    doSaavnSearch(query,0,true)
+}
+async function doSaavnSearch(query,NotScroll,page) {
+    window.location.hash = query;
     if(!query) {return 0;}
 results_container.innerHTML = `<span class="loader">Searching</span>`;
-    query=query+"&limit=50";
-
+    query=query+"&limit=40";
+    if(page) {
+        ;page_index=page_index+1;query=query+"&page="+page_index;
+    } else {query=query+"&page=1";page_index=1;}
+    
 // try catch
 try {
 var response = await fetch(searchUrl + query);
@@ -27,7 +37,6 @@ results_container.innerHTML = `<span class="error">Error: ${error} <br> Check if
 }
 var json = await response.json();
 /* If response code isn't 200, display error*/
-
 if (response.status !== 200) {
     results_container.innerHTML = `<span class="error">Error: ${json.message}</span>`;
     console.log(response)
@@ -127,3 +136,4 @@ $('#saavn-bitrate').on('change', function () {
         // Do Nothing
     } */
 });
+document.getElementById("loadmore").addEventListener('click',nextPage)
