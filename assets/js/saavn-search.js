@@ -22,6 +22,7 @@ function nextPage() {
 }
 async function doSaavnSearch(query,NotScroll,page) {
     window.location.hash = query;
+    document.querySelector("#saavn-search-box").value = decodeURIComponent(query);
     if(!query) {return 0;}
 results_container.innerHTML = `<span class="loader">Searching</span>`;
     query=query+"&limit=40";
