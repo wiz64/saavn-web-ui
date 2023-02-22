@@ -1,7 +1,5 @@
 # Saadhna
 Playing high quality songs, over your web browser, ad-free experience, High-Quality Music upto 320kbps
-> UI/Front-end for the [JioSaavn Unofficial API](https://github.com/sumitkolhe/jiosaavn-api) by [@sumitkolhe](https://github.com/sumitkolhe)
-
 ---
 
 ## Live Preview
