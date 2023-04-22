@@ -56,7 +56,8 @@ Don't forget to star the repo
                                 <div style="width: 95%;margin: auto;padding: 3px;" placeholder="Enter Song, Artist or Album name"><input class="form-control float-left fit-content" type="text" id="saavn-search-box" style="margin: 0px;color: var(--gray-dark);max-width: 100%;width: 75%;" placeholder="Enter Name, Year, Artist"><button class="btn btn-primary" id="saavn-search-trigger" type="submit" style="text-align: center;" onclick="SaavnSearch()">Search</button></div>
                                 <h5 class="text-uppercase text-center" style="color: rgb(165,255,184);">Results</h5>
                             </form>
-                            <div class="text-left" id="saavn-results" style="margin-bottom: 20px;">
+                        </div>
+                            <div id="saavn-results" style="margin-bottom: 20px;">
                                 <h5>Featured</h5>
                             </div>
                             <div class="text-center" style="width:100%"><button id="loadmore" style="width: 100%;">Load More</button></div>
@@ -74,26 +75,7 @@ Don't forget to star the repo
                                 buttonContainer.appendChild(button);
                                 });
                             </script>
-                            <style>
-                                .search-toggle-container {
-                                display: flex;
-                                flex-wrap: wrap;
-                                justify-content: center;
-                                gap: 10px;
-                                width: 95%;
-                                margin: 0 auto;
-                                }
-                                .search-toggle {
-                                background: rgba(0, 0, 0, 0.1);
-                                color: #fff;
-                                font-size: 18px;
-                                font-family: Aclonica, sans-serif;
-                                padding: 6px;
-                                border-style: none;
-                                }
-                                .search-toggle:nth-child(10n+1){color:#ceea82}.search-toggle:nth-child(10n+2){color:#70cee2}.search-toggle:nth-child(10n+3){color:#ef2b2d}.search-toggle:nth-child(10n+4){color:#23b805}.search-toggle:nth-child(10n+5){color:var(--primary)}.search-toggle:nth-child(10n+6){color:#cee007}.search-toggle:nth-child(10n+7){color:#ff77a8}.search-toggle:nth-child(10n+8){color:#21a9af}.search-toggle:nth-child(10n+9){color:var(--warning)}.search-toggle:nth-child(10n+10){color:#e316e7}
-                            </style>
-                        </div>
+                   
                         <p class="footer" align="center">
                             This content is not affiliated with, endorsed, sponsored, or specifically approved by any third party music provider like Gaana, Saavn, Spotfy, and is not responsible for any copyright material.<br>
                             We don't serve any music on our servers.<br><br>
@@ -128,6 +110,53 @@ Don't forget to star the repo
     <a href="javascript:void(0);" class="btn btn-primary" id="mpopupLink">
     <img src="https://img.icons8.com/ios/50/000000/download.png">
     </a></div>
+    <style>
+                                
+        #saavn-results{
+        display: flex;
+        flex-wrap: wrap;
+        }
+        /* Three columns on desktop */
+        @media screen and (min-width: 992px) {
+        .song-container {
+            width: calc(33.33% - 20px);
+            margin: 0 10px 20px 10px;
+        }
+        }
+
+        /* Two columns on desktop */
+        @media screen and (min-width: 768px) and (max-width: 991px) {
+        .song-container {
+            width: calc(50% - 20px);
+            margin: 0 10px 20px 10px;
+        }
+        }
+
+        /* One column on mobile */
+        @media screen and (max-width: 767px) {
+        .song-container {
+            width: calc(100% - 20px);
+            margin: 0 10px 20px 10px;
+        }
+        }
+        .search-toggle-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 95%;
+        margin: 0 auto;
+        }
+        .search-toggle {
+        background: rgba(0, 0, 0, 0.1);
+        color: #fff;
+        font-size: 18px;
+        font-family: Aclonica, sans-serif;
+        padding: 6px;
+        border-style: none;
+        }
+        .search-toggle:nth-child(10n+1){color:#ceea82}.search-toggle:nth-child(10n+2){color:#70cee2}.search-toggle:nth-child(10n+3){color:#ef2b2d}.search-toggle:nth-child(10n+4){color:#23b805}.search-toggle:nth-child(10n+5){color:var(--primary)}.search-toggle:nth-child(10n+6){color:#cee007}.search-toggle:nth-child(10n+7){color:#ff77a8}.search-toggle:nth-child(10n+8){color:#21a9af}.search-toggle:nth-child(10n+9){color:var(--warning)}.search-toggle:nth-child(10n+10){color:#e316e7}
+    </style>
     <style>
         .mpopup {
             position: fixed;
