@@ -43,9 +43,9 @@ if (response.status !== 200) {
     console.log(response)
     return 0;
 }
-var json = json.results;
+var json = json.data.results;
 var results = [];
-if(!json.length) {results_container.innerHTML = "<p> No result found. Try other Library </p>";return;}
+if(!json) {results_container.innerHTML = "<p> No result found. Try other Library </p>";return;}
 lastSearch = decodeURI(window.location.hash.substring(1));
 for(let track of json) {
 
