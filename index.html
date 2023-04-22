@@ -8,7 +8,7 @@ Don't forget to star the repo
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Saadhna Music Player</title>
+    <title>Saavn Music Player</title>
     <meta name="description" content="Saavn Music Player is an Ad-Free Music Player, High Quality MP3 Songs with Metadata support, and a Modern Design. A large library of songs. developed by wiz64">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
@@ -19,7 +19,7 @@ Don't forget to star the repo
 <body style="padding-bottom: 50px;background: rgb(0,0,0);">
     <header class="header-dark" style="color: rgb(205,205,205);padding: 0px 0px 10px;">
         <nav class="navbar navbar-dark navbar-expand-lg navigation-clean-search">
-            <div class="container"><a class="navbar-brand" href="#">Saadhna</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="container"><a class="navbar-brand" href="#">Saavn</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="btn btn-primary" role="button" href="https://github.com/wiz64/saavn-web-ui" target="_blank">Github</a></li>
@@ -30,7 +30,7 @@ Don't forget to star the repo
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
-                    <h1 class="text-center" style="margin: 0px;">Saadhna</h1>
+                    <h1 class="text-center" style="margin: 0px;">Saavn</h1>
                     <h3 class="text-center" style="color: rgba(249,255,255,0.81);font-family: Bitter, serif;">Music Player &amp; Downloader</h3>
                     <p class="text-center" style="padding: 0px 5px;">Ad-Free, Metadata, &amp; Modern Design</p>
                 </div>
@@ -60,7 +60,39 @@ Don't forget to star the repo
                                 <h5>Featured</h5>
                             </div>
                             <div class="text-center" style="width:100%"><button id="loadmore" style="width: 100%;">Load More</button></div>
-                            <div class="text-center" style="width: 95%;color: #ceea82;"><button class="btn btn-primary" type="button" style="background: rgba(0,0,0,0.1);color: #70cee2;font-size: 22px;font-family: Aclonica, sans-serif;padding: 02px;border-style: none;" onclick="doSaavnSearch('2022')">2022</button><button class="btn btn-primary" type="button" style="background: rgba(0,0,0,0.1);color: var(--white);font-size: 22px;font-family: Aclonica, sans-serif;padding: 02px;border-style: none;" onclick="doSaavnSearch('Arijit Singh')">Arijit Singh</button><button class="btn btn-primary" type="button" style="background: rgba(0,0,0,0.1);color: #ef2b2d;font-size: 22px;font-family: Aclonica, sans-serif;padding: 02px;border-style: none;" onclick="doSaavnSearch('english songs')">English Songs</button><button class="btn btn-primary" type="button" style="background: rgba(0,0,0,0.1);color: #23b805;font-size: 22px;font-family: Aclonica, sans-serif;padding: 02px;border-style: none;" onclick="doSaavnSearch('imran khan')">Imran Khan</button><button class="btn btn-primary" type="button" style="background: rgba(0,0,0,0.1);color: var(--primary);font-size: 22px;font-family: Aclonica, sans-serif;padding: 02px;border-style: none;" onclick="doSaavnSearch('dj snake')">DJ Snake</button><button class="btn btn-primary" type="button" style="background: rgba(0,0,0,0.1);color: #cee007;font-size: 18px;font-family: Aclonica, sans-serif;padding: 02px;border-style: none;" onclick="doSaavnSearch('darshan raval')">Darshan Raval</button><button class="btn btn-primary" type="button" style="background: rgba(0,0,0,0.1);color: #ff77a8;font-size: 18px;font-family: Aclonica, sans-serif;padding: 02px;border-style: none;" onclick="doSaavnSearch('akcent')">Akcent</button><button class="btn btn-primary" type="button" style="background: rgba(0,0,0,0.1);color: #21a9af;font-size: 18px;font-family: Aclonica, sans-serif;padding: 02px;border-style: none;" onclick="doSaavnSearch('jubin nautiyal')">Jubin Nautiyal</button><button class="btn btn-primary" type="button" style="background: rgba(0,0,0,0.1);color: var(--warning);font-size: 18px;font-family: Aclonica, sans-serif;padding: 02px;border-style: none;" onclick="doSaavnSearch('armaan malik')">Armaan Malik</button><button class="btn btn-primary" type="button" style="background: rgba(0,0,0,0.1);color: #e316e7;font-size: 18px;font-family: Aclonica, sans-serif;padding: 02px;border-style: none;" onclick="doSaavnSearch('old songs')">Old Songs</button></div>
+                            <div class="button-container">
+                            </div>
+                            <script>
+                                const buttonTitles = ['2023', 'English Songs', 'Arijit Singh', 'Imran Khan', 'DJ Snake', 'Darshan Raval', 'Akcent', 'Jubin Nautiyal', 'Armaan Malik', 'Old Songs',"Adele","Bohemian Rhapsody","Billie Eilish","Imagine Dragons","Ed Sheeran","Uptown Funk","Shape of You","Coldplay","Maroon 5","Taylor Swift","Sia","Radioactive","Halsey","Twenty One Pilots","The Chainsmokers","Drake","Justin Bieber","Lorde","Shawn Mendes","Beyonce","Panic! At The Disco","Pink","Queen","Kendrick Lamar","The Weeknd","Travis Scott","Rihanna","Lady Gaga","Katy Perry","Eminem","Green Day","Linkin Park","Red Hot Chili Peppers","Metallica","AC/DC","Nirvana","Guns N' Roses","Led Zeppelin","The Beatles","Michael Jackson","Whitney Houston","Elton John","Prince","Madonna","David Bowie","The Rolling Stones","Bob Dylan","Bruce Springsteen"];
+                                const buttonContainer = document.querySelector('.button-container');
+
+                                buttonTitles.forEach(title => {
+                                const button = document.createElement('button');
+                                button.classList.add('search-toggle');
+                                button.textContent = title;
+                                button.setAttribute('onclick', `doSaavnSearch('${title}')`);
+                                buttonContainer.appendChild(button);
+                                });
+                            </script>
+                            <style>
+                                .search-toggle-container {
+                                display: flex;
+                                flex-wrap: wrap;
+                                justify-content: center;
+                                gap: 10px;
+                                width: 95%;
+                                margin: 0 auto;
+                                }
+                                .search-toggle {
+                                background: rgba(0, 0, 0, 0.1);
+                                color: #fff;
+                                font-size: 18px;
+                                font-family: Aclonica, sans-serif;
+                                padding: 6px;
+                                border-style: none;
+                                }
+                                .search-toggle:nth-child(10n+1){color:#ceea82}.search-toggle:nth-child(10n+2){color:#70cee2}.search-toggle:nth-child(10n+3){color:#ef2b2d}.search-toggle:nth-child(10n+4){color:#23b805}.search-toggle:nth-child(10n+5){color:var(--primary)}.search-toggle:nth-child(10n+6){color:#cee007}.search-toggle:nth-child(10n+7){color:#ff77a8}.search-toggle:nth-child(10n+8){color:#21a9af}.search-toggle:nth-child(10n+9){color:var(--warning)}.search-toggle:nth-child(10n+10){color:#e316e7}
+                            </style>
                         </div>
                         <p class="footer" align="center">
                             This content is not affiliated with, endorsed, sponsored, or specifically approved by any third party music provider like Gaana, Saavn, Spotfy, and is not responsible for any copyright material.<br>
