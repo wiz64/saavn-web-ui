@@ -32,7 +32,7 @@ var goButton = document.getElementById("search-trigger");
             goButton.click();
     
 }
-var DOWNLOAD_API = "https://saadhna-mp3-server.mrdoggo11.repl.co"
+var DOWNLOAD_API = "https://openmp3compiler.astudy.org/"
 function AddDownload(id) {
     var bitrate = document.getElementById('saavn-bitrate');
     var bitrate_i = bitrate.options[bitrate.selectedIndex].value;
